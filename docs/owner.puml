@@ -1,0 +1,30 @@
+@startuml
+title Owner Aggregate
+
+package "Owner Aggregate" {
+
+  class Owner {
+    - ownerId: UUID
+    - name: String
+    - contact: String
+    - cpf: String
+    --  
+    + registerOwner()
+    + updateOwner()
+    + deleteOwner()
+    + registerVehicle()
+    + updateVehicle()
+    + deleteVehicle()
+  }
+
+  class Vehicle {
+    - vehicleId: UUID
+    - ownerId: UUID
+    - color: String
+    - licensePlate: String
+    - model: String
+  }
+
+  Owner "1" *-- "0..*" Vehicle : owns
+}
+@enduml

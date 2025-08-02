@@ -1,0 +1,33 @@
+@startuml
+title Ticket Aggregate
+
+package "Ticket Aggregate" {
+
+  class Ticket {
+    - ticketId: UUID
+    - vehiclePlate: String
+    - entryDateTime: OffsetDateTime
+    - exitDateTime: OffsetDateTime
+    --  
+    + createTicket()
+    + closeTicket()
+    + authorizeEntry()
+    + calculateFee()
+    + releaseExit()
+    + occupySlot()
+    + freeSlot()
+    + registerCapacity()
+    + updateCapacity()
+  }
+
+  class Occupation {
+    - occupationId: UUID
+    - createdAt: OffsetDateTime
+    - endedAt: OffsetDateTime
+    - temporaryCount: int
+    - subscriberCount: int
+  }
+
+  Ticket "1" *-- "1" Occupation : contains
+}
+@enduml
