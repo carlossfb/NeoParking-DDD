@@ -1,33 +1,27 @@
 @startuml
-title Ticket Aggregate
+title Ticket Aggregate (Ticketing Context)
 
 package "Ticket Aggregate" {
-
   class Ticket {
     - ticketId: UUID
-    - vehiclePlate: String
+    - vehiclePlate: vehiclePlateVO
     - entryDateTime: OffsetDateTime
     - exitDateTime: OffsetDateTime
-    --  
+    - status: TicketStatus
+    --
     + createTicket()
     + closeTicket()
     + authorizeEntry()
     + calculateFee()
     + releaseExit()
-    + occupySlot()
-    + freeSlot()
-    + registerCapacity()
-    + updateCapacity()
   }
 
-  class Occupation {
-    - occupationId: UUID
-    - createdAt: OffsetDateTime
-    - endedAt: OffsetDateTime
-    - temporaryCount: int
-    - subscriberCount: int
-  }
+  interface DomainEvent
 
-  Ticket "1" *-- "1" Occupation : contains
+  class TicketCreated implements DomainEvent
+  class TicketClosed implements DomainEvent
+
+  Ticket "1" ..> TicketCreated : emits >
+  Ticket "1" ..> TicketClosed : emits >
 }
 @enduml

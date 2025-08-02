@@ -14,6 +14,7 @@
 6. [Aggregates](#aggregates)  
    6.1 [Ticket](#ticket)  
    6.2 [Owner](#owner)  
+   6.3 [Owner](#occupation) 
 7. [Events](#events)  
    7.1 [Events in Repositories](#events-in-repositories)  
 8. [ArchUnit](#archunit)  
@@ -45,32 +46,25 @@ The main revenue of NeoParking comes from two sources: walk-in customers in the 
 
 ## 3. General Assumptions
 
-![System Context](https://www.plantuml.com/plantuml/png/TO_1hjem44Nt_effr0L8QRjXMH0IHUsYBGWMNIBZJ98HpZWQJmhv--U4F8c7n2eJZttlEUkeLhHhl8ce4B6rOZK8S60qIkeHZdrKR60JMF6cy0NsLYx4rRGmncEfe064gbgX846d5DYOJyJETmN2zytYssQnUZuuJPahO_OeCV1ir-BOdqFsFcOvV2umEbbc1unju4XdZr06WSQohGOIP1N2c0FUIDF7SW6fYegq0C6AeeeTcBuEQMghkCo6oHDVqZGtTvNPP7R_ImmVJHz8_WpD645hX7QwLFfmpS4b9Gd-pj04fgIGjg-ApG7zW_Kpm65aHudm7sjo7kEO6wwCaZmhiQnnrE_Xt4E5F2GDD4hkWcddgKJNfvSZ0BgQK-yBbkEltR_Jx-tFxTyVCvKEvsQDN7IDVmC0)
+![Context Map](https://www.plantuml.com/plantuml/png/ZPBBJW8n58RtVOgJsRWYn2qXX4GNccY61EB6i2YT0pOCfxMd1OtnXNmDNypQCfVPpRB_vIlyqoLxwNmurS9hNoFS6VBuuU5PMY6iL4TvG2ZA2w5hl0Bcyvq9L65rLHOB-180gfRCaBBjwGNVjAfHVFTe6wsEw3KTHX9pVe0ebGfMUcre9ACh33Wh-Nb2yYCXr_I0y5Xk8ERGaQn7OjP8R5mizXHtngH4T7k0uhQ0oMJH5M06va8iH1gvyPkHM_S6xj4YLRy_fBHaGF8EGUMVObZaGLCrWsRmMZwij_0Uq6baE6VWr2HNqzxa6rEbsQmffHV4OAyoXnqhfstQEjyqfhP7xFtpcEzzuboPFgss_rDK3ARp8iO75ikenrVy1m00)
 
-Shows how the system interacts with operators and external services such as the payment gateway.
+Breaks down the system into its main modules:
 
----
-
-### 🧱 Container Context
-
-![Container context](https://www.plantuml.com/plantuml/png/hPDFJnin4CNl_XJJLG-9b8OBnuBuKqIfsXA1r1wHi_koiU8THvu9P5NrkzVx9sYf252ffqp6tfdVUpC-4RLHDvKt0YN1saQh8H87Xb6d7dGMDboWeFF0YgqAZPh8EaQKCNsWcOqhnoNTrgAeZF5OA6cWwCgbKk4YSdM1ZNddEFUR0lJn_F3W_F3uxyHTt-7vWxRXiJ4pH0aykbwZ9PrGjWkp2Rql87ayocuWwy3YvXwq294goxPi8C4Q7MH2s3fDFvOBIirS0LQAA9rej0tkjAccjfIZh8cyurMAniPqCkzQLsoiHrclly_F-toMm9uwCoWufb-6w57Lw4c9wMcUGwGvZS6dCjr_wXDj6UHBFig-s7jB1tIxZasNin1qOC6tHZBaMSNtMBhSuo0yCEARPE-ddTcw0clYxAC1uCLM4TbwEfrT9T3-0brQnOEj1x2p61gD45ftTwGTcxfy1QLxwrtHuacBNoMKfQ_JtUQJVqU-wWUUc7VXMrszQRr2x40qsdmbZmiaDCAqd4vs_b9XArjYl8_mjp4ty2zFVv_PFpfF8EGMEzDeQONc05Db2v060XSx4xrR8AyJrK3g7gu4DNXVB-8D3Eb5TywqcoKJAgDbxPQmfdbD9RYfc-hrNFA_m7QJ730D9sFJmrJQ229XcqeuS0uAyH6x7zRqRHJxUh_oDYYqz2vmkzzvgDPWQHFoUcDp-_dwvztNYykBxvz66ZSOcnDmiQdy7m00)
-
-Breaks down the system into its main modules (containers):
-
-- `Access Control`
-- `Payment`
-- `Incident`
-- `Operator`
+- "Owner Context"
+- "Ticketing Context"
+- "Occupation Context"
+- "Payment Context"
+- "IOT external Context"
 
 ---
 
 ## 4. Process Discovery
 
-![Event Storming_parte1](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/temporary_clients.jpg)
+![Event Storming_parte1](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/temporary_clients.jpg)
 
-![Event Storming_parte2](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/creating_subscriber.jpg)
+![Event Storming_parte2](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/creating_subscriber.jpg)
 
-![Event Storming_parte3](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/subscriber_workflow.jpg)
+![Event Storming_parte3](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/subscriber_workflow.jpg)
 
 ---
 
@@ -84,12 +78,17 @@ TODO
 
 ### 6.1 Ticket
 
-![Aggregate root Ticket](https://www.plantuml.com/plantuml/png/VP7DRi8m48JlVefLJlrH3hro0W6LE549U835MS8AnuxMwmgAUFScA245gPoI_MOs6O_7KL4qLSuegoDOipsGmgGiXKfKCgP6Uy2I87kKCZWR0s0TnjZldHi0a8DUnqKnWircCUlWD-tPElfog3I2bGhxifF8gvnc3LzprMZBtIwIzdFlER8-j-G0rvTti4AjSatnyjf35-8ZmwJx8Fn3ypR1O4LdKvlpa-W6XHnXfFcHX_rWRQfFAnS6j1EYEo1KSbIIATPeMOU_fBf0fJjy6IfTjfz6vU1ljOORkg-sEsynqV-wyyKJLQcgWw2SfY7vniHUEoMcRRJ2Mv91wbDsLvvzPF2Mv-tpR-GHsE0LsKTpCMFoHQhSBm00)
+![Aggregate root Ticket](https://www.plantuml.com/plantuml/png/XP11Qm8n58Jl-HMFFIb5eTSzY4KjUB9GxVqHnpMOP2LvAxR5_zwONLjSa5uIvfiFCcGQXOCqpYenOa5hemyGUgcgW8e5D6Y9yHNDQYyuor2f8-i3Lw2YhnVqhOYqvHYfxJ8W6f7akDoMjDaivnqyOM-qnPjbGNcNFbQT0Y_XSvx8shZah7Qx2BdbctCsyeyIXQM9PRVgFQUs6kNhYNG02zf-CBn1MyS-uqRsTJ1VM5od_QbiTNET_WhymW0BZbYaWPbTL3gC5uGTQz2yTcpyuWGlglTnipndIyOTBLmIuftTazFCnwwYJgFYkQ3nUD9xeYGu8v4c3qLRnpllegRmsyRP7m00)
 
 
 ### 6.2 Owner
 
-![Aggregate root Owner](https://www.plantuml.com/plantuml/png/NP2nJWCn38RtF8ML2OfQmNfJaLWwWOJARYKcHFXofyG70-gxSssYG9qf_YB7_lvz4SooZ6ma2XCyVoVAy1X2fe12nipeFZ4GMFLYuSSO0CTOIkrQ0Qnd2zEvElW1ZiV3KsC9HnhWLN9CeI4t9K4dcixlrsGBSBdSGQOGYr2-JBkvRNIPFGfTCqzCdQdkD_g8ZadrQrf_-4zFVxeDT-6lMYjb7KDrvYahOuwEKg4NHj4HZPCdxgpkqCAs3nOsQpZsVhVRsBxIS1vRpCdiAVbbv5y0)
+![Aggregate root Owner](https://www.plantuml.com/plantuml/png/RP8_Ry8m4CLtVufJ9aeLrAvCzC_2K85KmMxP3nFLiIFdA4KLtxs4NArYTKhUx_nyTtbPzAmJ7rglk64FMXq34ht4mFXYgaK_EPVWD4EfJfiFxK1LKQdeMn4Ph_jUJ8EconLnK4ixfyrc-Ieiw1PpUkVK12V8nC3QS4cxNK4wVMeHBkVMuyjsDHRgw-EU4bpJCz9rYCcTq4DdDUEMMNXaLhYts3V6e_0BBMuegGENQDS4A-pvjFQQCHcNecuGVvoorHju7stscxqE3hUrl3y574KCvyyg1o4jSnIVeox2-2yW4trCnPVtZK7eSHs_ABNHmlyocK5-W-gnecbTK_KmcqshFD9yQDkhireWs4FhVm00)
+
+
+### 6.3 Occupation
+
+![Aggregate root Occupation](https://www.plantuml.com/plantuml/png/TP1DQiCm48NtEiNWLK99eDiiGaBTGbPUf3d0L7us8lenyhWKIkvUANM30ir6GjzyyqRIRXIECZchn8W5DLfF0ui9dlPz7z6pW1O5VGbUy2LBfGRMP-v1rNyz5Nqh8crv7ClC38bM56xeq6xeT3hKSs7WU3Q-Fmv1SkKeCPtA9eE4FqAmO3_p5W8jQFUoeQRhHaZDWdVZy2kihjiJkPJTp1cBPG7V8d055vKMumMnOmsgWsFZNp_XHTrUaw_sbqB63HOENiOxkNHp-4DHKVaxrND5w_NsViI6u4ngspvsyuXIlAWTV3iv-mC0)
 
 
 ---
