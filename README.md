@@ -60,7 +60,7 @@ Breaks down the system into its main modules:
 
 ## 4. Process Discovery
 
-As an initial step, I decided to understand a little more about the business domain using event storming. Through the big picture, some information that was hidden in the process was made explicit. I continued to initially place the relevant events, organized them chronologically, associated them with actions and then with the responsible actors, and if it made sense, I also associated a reading model.
+As an initial step, I decided to understand a little more about the business domain using user story and event storming. Through the big picture, some information that was hidden in the process was made explicit. I continued to initially place the relevant events, organized them chronologically, associated them with actions and then with the responsible actors, and if it made sense, I also associated a reading model.
 
 ![Event Storming_parte1](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/temporary_clients.jpg)
 
@@ -69,7 +69,32 @@ As an initial step, I decided to understand a little more about the business dom
 ![Event Storming_parte3](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/subscriber_workflow.jpg)
 
 
-Termos que foram usados no decorrer das discussões:
+Definitions around domain:
+
+### Nouns (specific to NeoParking domain)
+- Owner
+- Subscriber driver
+- RFID
+- Ticket
+- Fee
+- Parking operator
+- Available parking spots
+- Subscription plan
+- Payment
+
+### Verbs (with context)
+
+- Register entry (vehicle/subscriber entry recorded)
+- Present RFID or QR Code (at entry for identification)
+- Register exit (vehicle/subscriber exit recorded)
+- Validate ticket or identification (at exit)
+- Control duration of stay (for fee calculation)
+- View available parking spots (in real-time)
+- Monitor parking occupancy (for operational decisions)
+- Manage subscription plan (renew, cancel, update)
+- Update access permissions (based on subscription status)
+- Process payment (for subscriptions or one-time tickets)
+
 
 - Operator
 The entity responsible for managing the entire parking system. The operator configures operational rules, monitors the system, manages pricing policies, handles audits, and ensures that the infrastructure and services are functioning properly.
@@ -89,8 +114,9 @@ A Radio Frequency Identification tag assigned to a vehicle or user. RFID allows 
 
 ## 5. Project Structure and Architecture
 
-TODO
+I chose to use the tactical design decision tree, ref: Learning Domain-Driven Design: Aligning Software Architecture and Business Strategy -  Vlad Khononov
 
+![Event Storming_parte1](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/arch.drawio.png)
 ---
 
 ## 6. Aggregates
