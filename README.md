@@ -69,7 +69,7 @@ As an initial step, I decided to understand a little more about the business dom
 ![Event Storming_parte3](https://github.com/carlossfb/NeoParking-DDD/blob/main/docs/graph/subscriber_workflow.jpg)
 
 
-Definitions around domain:
+Definitions around domain extracted from user stories:
 
 ### Nouns (specific to NeoParking domain)
 - Owner
@@ -95,6 +95,7 @@ Definitions around domain:
 - Update access permissions (based on subscription status)
 - Process payment (for subscriptions or one-time tickets)
 
+### Domain language
 
 - Operator
 The entity responsible for managing the entire parking system. The operator configures operational rules, monitors the system, manages pricing policies, handles audits, and ensures that the infrastructure and services are functioning properly.
