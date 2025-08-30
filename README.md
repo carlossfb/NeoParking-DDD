@@ -6,25 +6,26 @@
 
 ## 📖 Table of Contents
 
-1. [About](#about)  
-2. [Domain Description](#domain-description)  
-3. [General Assumptions](#general-assumptions)  
-4. [Process Discovery](#process-discovery)  
-5. [Project Structure and Architecture](#project-structure-and-architecture)  
-6. [Aggregates](#aggregates)  
-   6.1 [Ticket](#ticket)  
-   6.2 [Owner](#owner)  
-   6.3 [Occupation](#occupation)  
-7. [Events](#events)  
-   7.1 [Events in Repositories](#events-in-repositories)  
-8. [ArchUnit](#archunit)  
-9. [Functional Thinking](#functional-thinking)   
-10. [Architecture-Code Gap](#architecture-code-gap)  
-11. [Model-Code Gap](#model-code-gap)  
-12. [Spring](#spring)  
-13. [Tests](#tests)  
-14. [How to Contribute](#how-to-contribute)  
-15. [References](#references)
+## Table of Contents
+1. [About](#1-about)
+2. [Domain Description](#2-domain-description)
+3. [General Assumptions](#3-general-assumptions)
+4. [Process Discovery](#4-process-discovery)
+5. [Project Structure and Architecture](#5-project-structure-and-architecture)
+6. [Aggregates](#6-aggregates)
+   - [Ticket](#61-ticket)
+   - [Owner](#62-owner)
+   - [Occupation](#63-occupation)
+7. [Events](#7-events)
+8. [ArchUnit](#8-archunit)
+9. [Functional Thinking](#9-functional-thinking)
+10. [No ORM](#10-no-orm)
+11. [Architecture-Code Gap](#11-architecture-code-gap)
+12. [Spring](#12-spring)
+13. [Tests](#13-tests)
+14. [How to Contribute](#14-how-to-contribute)
+15. [References](#15-references)
+
 
 ---
 
